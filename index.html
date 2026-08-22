@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Inshaal ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="particles"></div>
+
+  <!-- PASSWORD -->
+  <section class="screen active" id="loginScreen">
+    <div class="glass login-card">
+      <div class="logo-heart">♥</div>
+      <span class="eyebrow">A PRIVATE LITTLE WORLD</span>
+
+      <h1>Only for Inshaal</h1>
+
+      <p>
+        Some things are meant for one person only.
+        <br>Enter your special date to continue. ✨
+      </p>
+
+      <div class="password-box">
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter your date"
+          autocomplete="off"
+        >
+        <button id="unlockBtn">Unlock ❤️</button>
+      </div>
+
+      <p class="hint">Hint: Your special day • 26 June</p>
+      <p class="error" id="loginError"></p>
+    </div>
+  </section>
+
+
+  <!-- QUESTIONS -->
+  <section class="screen" id="questionScreen">
+
+    <div class="topbar">
+      <span id="questionNumber">01 / 05</span>
+      <div class="progress-track">
+        <div id="progress"></div>
+      </div>
+    </div>
+
+    <div class="glass question-card">
+
+      <div class="orb">
+        <span>♥</span>
+      </div>
+
+      <span class="eyebrow">QUESTION <span id="smallNumber">01</span></span>
+
+      <h1 id="questionTitle"></h1>
+      <p id="questionText"></p>
+
+      <div class="answer-area">
+
+        <button class="yes-button" id="yesButton">
+          Yes ❤️
+        </button>
+
+        <button class="no-button" id="noButton">
+          No 😭
+        </button>
+
+      </div>
+
+      <p class="reaction" id="noReaction"></p>
+
+    </div>
+  </section>
+
+
+  <!-- CHOICE CELEBRATION -->
+  <section class="screen" id="chosenScreen">
+
+    <div class="celebration-content">
+
+      <div class="giant-heart">♥</div>
+
+      <span class="eyebrow">SHE CHOSE</span>
+
+      <h1>Inshaal ❤️ Ahmie</h1>
+
+      <p>
+        And now... there's something I want you to read.
+      </p>
+
+      <button class="continue-button" id="letterButton">
+        Read my letter 💌
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- LOVE LETTER -->
+  <section class="screen" id="letterScreen">
+
+    <div class="glass letter-card">
+
+      <span class="eyebrow">A LETTER FROM AHMIE</span>
+
+      <h1>For Inshaal,</h1>
+
+      <div class="letter">
+
+        <p>
+          I don't want this letter to be about holding you back,
+          controlling your choices, or asking you to belong to me.
+        </p>
+
+        <p>
+          You have always been free to choose the person who makes
+          your heart happy. If one day you choose someone else,
+          I will respect that choice, even if it hurts.
+        </p>
+
+        <p>
+          But if life ever brings you back to me, from anywhere,
+          at any time, I want you to know something simple:
+          <strong>I would still open the door for you.</strong>
+        </p>
+
+        <p>
+          I can stay beside you for as long as you genuinely want
+          me there. But if you ever decide, with your own happiness,
+          that you want me to walk away, I will respect you enough
+          to let you go.
+        </p>
+
+        <p>
+          All I have ever wanted in return is something simple:
+          <strong>respect, appreciation, honesty and value.</strong>
+        </p>
+
+        <p>
+          Whatever happened before, I don't want to carry those
+          chapters like weapons. I just want the things between us
+          to be clear, peaceful and honest.
+        </p>
+
+        <p>
+          You can find love again. You can choose someone,
+          call someone your favourite person, or make someone
+          your whole world. That's your freedom.
+        </p>
+
+        <p>
+          And maybe that's what makes love meaningful —
+          when someone stays because they genuinely want to,
+          not because they are forced to.
+        </p>
+
+        <p>
+          Through everything, one thing remains:
+          <strong>I'll always consider you my best friend forever.</strong>
+        </p>
+
+        <p>
+          Maybe our story has had confusing chapters.
+          Maybe some things happened that neither of us understood
+          completely.
+        </p>
+
+        <p>
+          But today, I don't want to fight the past.
+          I just want to make the future a little more beautiful.
+        </p>
+
+        <p class="signature">
+          Always wishing the best for you,<br>
+          <strong>Ahmie ❤️</strong>
+        </p>
+
+      </div>
+
+      <button class="continue-button" id="datingButton">
+        So... let's talk about us 🌹
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- DATING SETUP -->
+  <section class="screen" id="datingScreen">
+
+    <div class="topbar">
+      <span id="datingNumber">01 / 06</span>
+
+      <div class="progress-track">
+        <div id="datingProgress"></div>
+      </div>
+    </div>
+
+    <div class="glass dating-card">
+
+      <div class="dating-icon" id="datingIcon">🎨</div>
+
+      <span class="eyebrow">OUR LITTLE FUTURE</span>
+
+      <h1 id="datingTitle"></h1>
+
+      <p id="datingText"></p>
+
+      <div class="dating-options" id="datingOptions"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FINAL -->
+  <section class="screen" id="finalScreen">
+
+    <div class="final-glow"></div>
+
+    <div class="final-content">
+
+      <div class="final-heart">♥</div>
+
+      <span class="eyebrow">THE BEGINNING</span>
+
+      <h1>Inshaal × Ahmie</h1>
+
+      <p class="final-main">
+        Let's have a beautiful life together.
+      </p>
+
+      <p class="inshallah">
+        Inshallah. ❤️
+      </p>
+
+      <div class="final-message">
+
+        <p>
+          Good days. Bad days. Random laughs.
+          Late-night conversations.
+          Little adventures.
+          And memories we haven't made yet.
+        </p>
+
+        <p>
+          Whatever the future brings,
+          may it always bring us closer to happiness.
+        </p>
+
+      </div>
+
+      <div class="final-choice">
+        <span>Her choice</span>
+        <strong id="chosenColour">❤️</strong>
+      </div>
+
+      <p class="forever">
+        — Ahmie
+      </p>
+
+    </div>
+
+  </section>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
