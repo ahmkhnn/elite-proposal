@@ -1,3 +1,4 @@
+alert("JS WORKING ❤️");
 alert("JAVASCRIPT IS WORKING ❤️");
 /* =========================================================
    ELITE PROPOSAL
