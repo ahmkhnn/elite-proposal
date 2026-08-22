@@ -1,162 +1,154 @@
-/* =========================
+/* =========================================================
+   ELITE PROPOSAL
+   CLEAN COMPLETE SCRIPT
+========================================================= */
+
+
+/* =========================================================
    SCREEN SYSTEM
-========================= */
+========================================================= */
 
 const screens = {
-
-  login:
-    document.getElementById("loginScreen"),
-
-  questions:
-    document.getElementById("questionScreen"),
-
-  chosen:
-    document.getElementById("chosenScreen"),
-
-  letter:
-    document.getElementById("letterScreen"),
-
-  gallery:
-    document.getElementById("galleryScreen"),
-
-  dating:
-    document.getElementById("datingScreen"),
-
-  final:
-    document.getElementById("finalScreen")
-
+  login: document.getElementById("loginScreen"),
+  questions: document.getElementById("questionScreen"),
+  chosen: document.getElementById("chosenScreen"),
+  letter: document.getElementById("letterScreen"),
+  gallery: document.getElementById("galleryScreen"),
+  dating: document.getElementById("datingScreen"),
+  final: document.getElementById("finalScreen")
 };
 
 
 function showScreen(screen) {
 
   Object.values(screens).forEach(screenItem => {
-
-    screenItem.classList.remove("active");
-
+    if (screenItem) {
+      screenItem.classList.remove("active");
+    }
   });
 
-  screen.classList.add("active");
+  if (screen) {
+    screen.classList.add("active");
+  }
 
   createHearts(18);
 }
 
 
-/* =========================
-   PASSWORD
-========================= */
+/* =========================================================
+   PASSWORD / LOGIN
+========================================================= */
 
-const password =
-  document.getElementById("password");
-
-const unlockBtn =
-  document.getElementById("unlockBtn");
-
-const loginError =
-  document.getElementById("loginError");
+const password = document.getElementById("password");
+const unlockBtn = document.getElementById("unlockBtn");
+const loginError = document.getElementById("loginError");
 
 
 function unlock() {
 
-  const value =
-    password.value
-      .trim()
-      .toLowerCase()
-      .replace(/\s+/g,"");
+  const value = password.value
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "");
+
 
   const validPasswords = [
-
     "2606",
-    "2606"
-
+    "26june"
   ];
 
 
   if (validPasswords.includes(value)) {
 
+    loginError.innerText = "";
+
     createHearts(60);
 
-    unlockBtn.innerText =
-      "Unlocked ❤️";
+    unlockBtn.innerText = "Unlocked ❤️";
+    unlockBtn.disabled = true;
+
 
     setTimeout(() => {
 
       showScreen(screens.questions);
 
+      questionIndex = 0;
+      noIndex = 0;
+
       loadQuestion();
 
-    },900);
+      unlockBtn.disabled = false;
+
+    }, 900);
+
 
   } else {
 
     loginError.innerText =
       "Hmm... that's not the right date 🥺";
 
-    password.animate(
 
+    password.animate(
       [
         {
-          transform:
-            "translateX(0)"
+          transform: "translateX(0)"
         },
-
         {
-          transform:
-            "translateX(-8px)"
+          transform: "translateX(-8px)"
         },
-
         {
-          transform:
-            "translateX(8px)"
+          transform: "translateX(8px)"
         },
-
         {
-          transform:
-            "translateX(0)"
+          transform: "translateX(-5px)"
+        },
+        {
+          transform: "translateX(0)"
         }
       ],
-
       {
-        duration:
-          450
+        duration: 450
       }
-
     );
 
   }
+}
+
+
+if (unlockBtn) {
+
+  unlockBtn.addEventListener(
+    "click",
+    unlock
+  );
 
 }
 
 
-unlockBtn.addEventListener(
-  "click",
-  unlock
-);
+if (password) {
 
+  password.addEventListener(
+    "keydown",
+    event => {
 
-password.addEventListener(
-  "keydown",
-  event => {
-
-    if (event.key === "Enter") {
-
-      unlock();
+      if (event.key === "Enter") {
+        unlock();
+      }
 
     }
+  );
 
-  }
-);
+}
 
 
-/* =========================
+/* =========================================================
    FIVE QUESTIONS
-========================= */
+========================================================= */
 
 const questions = [
 
   {
-    title:
-      "Inshaal...",
+    title: "Inshaal...",
 
     text:
       "Who makes your ordinary days feel a little more special?",
@@ -165,9 +157,9 @@ const questions = [
       "Ahmie ❤️"
   },
 
+
   {
-    title:
-      "One more thing... 👀",
+    title: "One more thing... 👀",
 
     text:
       "Who should get your random late-night messages?",
@@ -176,9 +168,9 @@ const questions = [
       "Ahmie 📱❤️"
   },
 
+
   {
-    title:
-      "Be honest with me 🥺",
+    title: "Be honest with me 🥺",
 
     text:
       "Who is secretly one of your favourite people?",
@@ -187,9 +179,9 @@ const questions = [
       "Ahmie 😭❤️"
   },
 
+
   {
-    title:
-      "Almost there ✨",
+    title: "Almost there ✨",
 
     text:
       "If Ahmie asked you to stay by his side, what would you say?",
@@ -198,9 +190,9 @@ const questions = [
       "I'd stay ❤️"
   },
 
+
   {
-    title:
-      "The final question...",
+    title: "The final question...",
 
     text:
       "Will you choose Ahmie and make this little story ours?",
@@ -213,49 +205,32 @@ const questions = [
 
 
 let questionIndex = 0;
-
 let noIndex = 0;
 
 
 const questionTitle =
-  document.getElementById(
-    "questionTitle"
-  );
+  document.getElementById("questionTitle");
 
 const questionText =
-  document.getElementById(
-    "questionText"
-  );
+  document.getElementById("questionText");
 
 const yesButton =
-  document.getElementById(
-    "yesButton"
-  );
+  document.getElementById("yesButton");
 
 const noButton =
-  document.getElementById(
-    "noButton"
-  );
+  document.getElementById("noButton");
 
 const noReaction =
-  document.getElementById(
-    "noReaction"
-  );
+  document.getElementById("noReaction");
 
 const questionNumber =
-  document.getElementById(
-    "questionNumber"
-  );
+  document.getElementById("questionNumber");
 
 const smallNumber =
-  document.getElementById(
-    "smallNumber"
-  );
+  document.getElementById("smallNumber");
 
 const progress =
-  document.getElementById(
-    "progress"
-  );
+  document.getElementById("progress");
 
 
 const noMessages = [
@@ -277,6 +252,11 @@ const noMessages = [
 
 function loadQuestion() {
 
+  if (!questions.length) {
+    return;
+  }
+
+
   const question =
     questions[questionIndex];
 
@@ -284,8 +264,10 @@ function loadQuestion() {
   questionTitle.innerText =
     question.title;
 
+
   questionText.innerText =
     question.text;
+
 
   yesButton.innerText =
     question.yes;
@@ -293,18 +275,19 @@ function loadQuestion() {
 
   const number =
     String(questionIndex + 1)
-      .padStart(2,"0");
+      .padStart(2, "0");
 
 
   questionNumber.innerText =
     `${number} / 05`;
+
 
   smallNumber.innerText =
     number;
 
 
   progress.style.width =
-    `${((questionIndex + 1) / 5) * 100}%`;
+    `${((questionIndex + 1) / questions.length) * 100}%`;
 
 
   noButton.style.position =
@@ -326,27 +309,20 @@ function loadQuestion() {
     [
       {
         opacity: 0,
-        transform:
-          "translateY(30px)",
-        filter:
-          "blur(10px)"
+        transform: "translateY(30px)",
+        filter: "blur(10px)"
       },
 
       {
         opacity: 1,
-        transform:
-          "translateY(0)",
-        filter:
-          "blur(0)"
+        transform: "translateY(0)",
+        filter: "blur(0)"
       }
     ],
 
     {
-      duration:
-        900,
-
-      easing:
-        "cubic-bezier(.16,1,.3,1)"
+      duration: 900,
+      easing: "cubic-bezier(.16,1,.3,1)"
     }
 
   );
@@ -354,20 +330,9 @@ function loadQuestion() {
 }
 
 
-/* =========================
+/* =========================================================
    NO BUTTON
-========================= */
-
-noButton.addEventListener(
-  "mouseenter",
-  dodgeNo
-);
-
-noButton.addEventListener(
-  "click",
-  dodgeNo
-);
-
+========================================================= */
 
 function dodgeNo() {
 
@@ -387,20 +352,25 @@ function dodgeNo() {
     "fixed";
 
 
-  const margin =
-    20;
+  const margin = 20;
 
 
   const maxX =
-    window.innerWidth -
-    noButton.offsetWidth -
-    margin;
+    Math.max(
+      margin,
+      window.innerWidth -
+      noButton.offsetWidth -
+      margin
+    );
 
 
   const maxY =
-    window.innerHeight -
-    noButton.offsetHeight -
-    margin;
+    Math.max(
+      margin,
+      window.innerHeight -
+      noButton.offsetHeight -
+      margin
+    );
 
 
   const x =
@@ -420,6 +390,7 @@ function dodgeNo() {
   noButton.style.left =
     `${x}px`;
 
+
   noButton.style.top =
     `${y}px`;
 
@@ -428,27 +399,21 @@ function dodgeNo() {
 
     [
       {
-        transform:
-          "scale(.8) rotate(-8deg)"
+        transform: "scale(.8) rotate(-8deg)"
       },
 
       {
-        transform:
-          "scale(1.15) rotate(8deg)"
+        transform: "scale(1.15) rotate(8deg)"
       },
 
       {
-        transform:
-          "scale(1) rotate(0)"
+        transform: "scale(1) rotate(0)"
       }
     ],
 
     {
-      duration:
-        500,
-
-      easing:
-        "cubic-bezier(.16,1,.3,1)"
+      duration: 500,
+      easing: "cubic-bezier(.16,1,.3,1)"
     }
 
   );
@@ -459,94 +424,115 @@ function dodgeNo() {
 }
 
 
-/* =========================
-   YES
-========================= */
+if (noButton) {
 
-yesButton.addEventListener(
-  "click",
-  () => {
-
-    createHearts(45);
+  noButton.addEventListener(
+    "mouseenter",
+    dodgeNo
+  );
 
 
-    yesButton.animate(
+  noButton.addEventListener(
+    "click",
+    dodgeNo
+  );
 
-      [
+}
+
+
+/* =========================================================
+   YES BUTTON
+========================================================= */
+
+if (yesButton) {
+
+  yesButton.addEventListener(
+    "click",
+    () => {
+
+      createHearts(45);
+
+
+      yesButton.animate(
+
+        [
+          {
+            transform: "scale(1)"
+          },
+
+          {
+            transform: "scale(1.2)"
+          },
+
+          {
+            transform: "scale(.9)"
+          },
+
+          {
+            transform: "scale(1)"
+          }
+        ],
+
         {
-          transform:
-            "scale(1)"
-        },
-
-        {
-          transform:
-            "scale(1.2)"
-        },
-
-        {
-          transform:
-            "scale(.9)"
-        },
-
-        {
-          transform:
-            "scale(1)"
+          duration: 700
         }
-      ],
 
-      {
-        duration:
+      );
+
+
+      if (
+        questionIndex <
+        questions.length - 1
+      ) {
+
+        questionIndex++;
+
+        noIndex = 0;
+
+
+        setTimeout(
+          loadQuestion,
           700
+        );
+
+
+      } else {
+
+        setTimeout(
+          () => {
+
+            showScreen(
+              screens.chosen
+            );
+
+          },
+          900
+        );
+
       }
 
-    );
-
-
-    if (
-      questionIndex <
-      questions.length - 1
-    ) {
-
-      questionIndex++;
-
-      noIndex = 0;
-
-
-      setTimeout(
-        loadQuestion,
-        700
-      );
-
-    } else {
-
-      setTimeout(
-        () => {
-
-          showScreen(
-            screens.chosen
-          );
-
-        },
-        900
-      );
-
     }
+  );
 
-  }
-);
+}
 
 
-/* =========================
+/* =========================================================
    CHOICE → LETTER
-========================= */
+========================================================= */
 
-document
-  .getElementById("letterButton")
-  .addEventListener(
+const letterButton =
+  document.getElementById("letterButton");
+
+
+if (letterButton) {
+
+  letterButton.addEventListener(
     "click",
     () => {
 
       createHearts(60);
+
 
       setTimeout(
         () => {
@@ -562,14 +548,20 @@ document
     }
   );
 
+}
 
-/* =========================
+
+/* =========================================================
    LETTER → GALLERY
-========================= */
+========================================================= */
 
-document
-  .getElementById("galleryButton")
-  .addEventListener(
+const galleryButton =
+  document.getElementById("galleryButton");
+
+
+if (galleryButton) {
+
+  galleryButton.addEventListener(
     "click",
     () => {
 
@@ -582,10 +574,12 @@ document
     }
   );
 
+}
 
-/* =========================
-   30 PHOTO GALLERY
-========================= */
+
+/* =========================================================
+   MAIN 30 PHOTO GALLERY
+========================================================= */
 
 const photos = [];
 
@@ -597,51 +591,46 @@ for (
 ) {
 
   photos.push(
-    `our-memories/photo${String(i).padStart(2,"0")}.jpg`
+    `our-memories/photo${String(i).padStart(2, "0")}.jpg`
   );
 
 }
 
 
 const galleryGrid =
-  document.getElementById(
-    "galleryGrid"
-  );
+  document.getElementById("galleryGrid");
 
 
 const lightbox =
-  document.getElementById(
-    "lightbox"
-  );
+  document.getElementById("lightbox");
 
 
 const lightboxImage =
-  document.getElementById(
-    "lightboxImage"
-  );
+  document.getElementById("lightboxImage");
 
 
 const photoCounter =
-  document.getElementById(
-    "photoCounter"
-  );
+  document.getElementById("photoCounter");
 
 
-let currentPhoto = 0;
+let galleryPhotoIndex = 0;
 
 
 function createGallery() {
+
+  if (!galleryGrid) {
+    return;
+  }
+
 
   galleryGrid.innerHTML = "";
 
 
   photos.forEach(
-    (photo,index) => {
+    (photo, index) => {
 
       const item =
-        document.createElement(
-          "div"
-        );
+        document.createElement("div");
 
 
       item.className =
@@ -657,9 +646,7 @@ function createGallery() {
         >
 
         <span class="gallery-number">
-
-          ${String(index + 1).padStart(2,"0")}
-
+          ${String(index + 1).padStart(2, "0")}
         </span>
 
       `;
@@ -669,7 +656,7 @@ function createGallery() {
         "click",
         () => {
 
-          openPhoto(index);
+          openGalleryPhoto(index);
 
         }
       );
@@ -685,24 +672,32 @@ function createGallery() {
 }
 
 
-function openPhoto(index) {
+function openGalleryPhoto(index) {
 
-  currentPhoto =
-    index;
-
-
-  lightboxImage.src =
-    photos[currentPhoto];
+  galleryPhotoIndex = index;
 
 
-  photoCounter.innerText =
+  if (lightboxImage) {
 
-    `${String(currentPhoto + 1).padStart(2,"0")} / 30`;
+    lightboxImage.src =
+      photos[galleryPhotoIndex];
+
+  }
 
 
-  lightbox.classList.add(
-    "active"
-  );
+  if (photoCounter) {
+
+    photoCounter.innerText =
+      `${String(galleryPhotoIndex + 1).padStart(2, "0")} / 30`;
+
+  }
+
+
+  if (lightbox) {
+
+    lightbox.classList.add("active");
+
+  }
 
 
   createHearts(8);
@@ -710,135 +705,120 @@ function openPhoto(index) {
 }
 
 
-function closePhoto() {
+function closeGalleryPhoto() {
 
-  lightbox.classList.remove(
-    "active"
-  );
+  if (lightbox) {
+
+    lightbox.classList.remove("active");
+
+  }
 
 }
 
 
-function nextPhoto() {
+function nextGalleryPhoto() {
 
-  currentPhoto++;
+  galleryPhotoIndex++;
 
 
   if (
-    currentPhoto >=
+    galleryPhotoIndex >=
     photos.length
   ) {
 
-    currentPhoto = 0;
+    galleryPhotoIndex = 0;
 
   }
 
 
-  openPhoto(
-    currentPhoto
+  openGalleryPhoto(
+    galleryPhotoIndex
   );
 
 }
 
 
-function previousPhoto() {
+function previousGalleryPhoto() {
 
-  currentPhoto--;
+  galleryPhotoIndex--;
 
 
   if (
-    currentPhoto < 0
+    galleryPhotoIndex < 0
   ) {
 
-    currentPhoto =
+    galleryPhotoIndex =
       photos.length - 1;
 
   }
 
 
-  openPhoto(
-    currentPhoto
+  openGalleryPhoto(
+    galleryPhotoIndex
   );
 
 }
 
 
-document
-  .getElementById("closeLightbox")
-  .addEventListener(
+/* =========================================================
+   LIGHTBOX BUTTONS
+========================================================= */
+
+const closeLightbox =
+  document.getElementById("closeLightbox");
+
+const nextPhotoButton =
+  document.getElementById("nextPhoto");
+
+const previousPhotoButton =
+  document.getElementById("previousPhoto");
+
+
+if (closeLightbox) {
+
+  closeLightbox.addEventListener(
     "click",
-    closePhoto
+    closeGalleryPhoto
   );
 
+}
 
-document
-  .getElementById("nextPhoto")
-  .addEventListener(
+
+if (nextPhotoButton) {
+
+  nextPhotoButton.addEventListener(
     "click",
-    nextPhoto
+    nextGalleryPhoto
   );
 
+}
 
-document
-  .getElementById("previousPhoto")
-  .addEventListener(
+
+if (previousPhotoButton) {
+
+  previousPhotoButton.addEventListener(
     "click",
-    previousPhoto
+    previousGalleryPhoto
   );
 
-
-document.addEventListener(
-  "keydown",
-  event => {
-
-    if (
-      !lightbox.classList.contains(
-        "active"
-      )
-    ) {
-      return;
-    }
+}
 
 
-    if (
-      event.key === "Escape"
-    ) {
-
-      closePhoto();
-
-    }
-
-
-    if (
-      event.key === "ArrowRight"
-    ) {
-
-      nextPhoto();
-
-    }
-
-
-    if (
-      event.key === "ArrowLeft"
-    ) {
-
-      previousPhoto();
-
-    }
-
-  }
-);
-
-
-/* =========================
+/* =========================================================
    GALLERY → DATING
-========================= */
+========================================================= */
 
-document
-  .getElementById("datingButton")
-  .addEventListener(
+const datingButton =
+  document.getElementById("datingButton");
+
+
+if (datingButton) {
+
+  datingButton.addEventListener(
     "click",
     () => {
+
+      datingIndex = 0;
 
       showScreen(
         screens.dating
@@ -849,16 +829,17 @@ document
     }
   );
 
+}
 
-/* =========================
+
+/* =========================================================
    DATING QUESTIONS
-========================= */
+========================================================= */
 
 const datingQuestions = [
 
   {
-    icon:
-      "🎨",
+    icon: "🎨",
 
     title:
       "What's your favourite colour?",
@@ -874,9 +855,9 @@ const datingQuestions = [
     ]
   },
 
+
   {
-    icon:
-      "🌙",
+    icon: "🌙",
 
     title:
       "What's your perfect vibe?",
@@ -892,9 +873,9 @@ const datingQuestions = [
     ]
   },
 
+
   {
-    icon:
-      "🌹",
+    icon: "🌹",
 
     title:
       "What's your idea of a cute date?",
@@ -910,9 +891,9 @@ const datingQuestions = [
     ]
   },
 
+
   {
-    icon:
-      "🎵",
+    icon: "🎵",
 
     title:
       "What should our soundtrack feel like?",
@@ -928,9 +909,9 @@ const datingQuestions = [
     ]
   },
 
+
   {
-    icon:
-      "🍿",
+    icon: "🍿",
 
     title:
       "Perfect evening?",
@@ -946,9 +927,9 @@ const datingQuestions = [
     ]
   },
 
+
   {
-    icon:
-      "💌",
+    icon: "💌",
 
     title:
       "One last thing...",
@@ -974,61 +955,52 @@ let selectedColour =
 
 
 const datingIcon =
-  document.getElementById(
-    "datingIcon"
-  );
+  document.getElementById("datingIcon");
 
 const datingTitle =
-  document.getElementById(
-    "datingTitle"
-  );
+  document.getElementById("datingTitle");
 
 const datingText =
-  document.getElementById(
-    "datingText"
-  );
+  document.getElementById("datingText");
 
 const datingOptions =
-  document.getElementById(
-    "datingOptions"
-  );
+  document.getElementById("datingOptions");
 
 const datingNumber =
-  document.getElementById(
-    "datingNumber"
-  );
+  document.getElementById("datingNumber");
 
 const datingProgress =
-  document.getElementById(
-    "datingProgress"
-  );
+  document.getElementById("datingProgress");
 
 
 function loadDatingQuestion() {
 
+  if (!datingQuestions.length) {
+    return;
+  }
+
+
   const dating =
-    datingQuestions[
-      datingIndex
-    ];
+    datingQuestions[datingIndex];
 
 
   datingIcon.innerText =
     dating.icon;
 
+
   datingTitle.innerText =
     dating.title;
+
 
   datingText.innerText =
     dating.text;
 
 
   datingNumber.innerText =
-
-    `${String(datingIndex + 1).padStart(2,"0")} / 06`;
+    `${String(datingIndex + 1).padStart(2, "0")} / 06`;
 
 
   datingProgress.style.width =
-
     `${((datingIndex + 1) / datingQuestions.length) * 100}%`;
 
 
@@ -1040,9 +1012,7 @@ function loadDatingQuestion() {
     option => {
 
       const button =
-        document.createElement(
-          "button"
-        );
+        document.createElement("button");
 
 
       button.className =
@@ -1071,24 +1041,20 @@ function loadDatingQuestion() {
 
             [
               {
-                transform:
-                  "scale(1)"
+                transform: "scale(1)"
               },
 
               {
-                transform:
-                  "scale(1.08)"
+                transform: "scale(1.08)"
               },
 
               {
-                transform:
-                  "scale(1)"
+                transform: "scale(1)"
               }
             ],
 
             {
-              duration:
-                450
+              duration: 450
             }
 
           );
@@ -1111,12 +1077,18 @@ function loadDatingQuestion() {
 
               } else {
 
-                document
-                  .getElementById(
+                const chosenColour =
+                  document.getElementById(
                     "chosenColour"
-                  )
-                  .innerText =
+                  );
+
+
+                if (chosenColour) {
+
+                  chosenColour.innerText =
                     selectedColour;
+
+                }
 
 
                 showScreen(
@@ -1146,11 +1118,20 @@ function loadDatingQuestion() {
 }
 
 
-/* =========================
+/* =========================================================
    HEART PARTICLES
-========================= */
+========================================================= */
 
 function createHearts(amount) {
+
+  const particles =
+    document.getElementById("particles");
+
+
+  if (!particles) {
+    return;
+  }
+
 
   for (
     let i = 0;
@@ -1159,9 +1140,7 @@ function createHearts(amount) {
   ) {
 
     const heart =
-      document.createElement(
-        "div"
-      );
+      document.createElement("div");
 
 
     heart.className =
@@ -1169,19 +1148,17 @@ function createHearts(amount) {
 
 
     heart.innerText =
-      Math.random() > .3
+      Math.random() > 0.3
         ? "♥"
         : "✦";
 
 
     heart.style.left =
-      Math.random() * 100 +
-      "vw";
+      Math.random() * 100 + "vw";
 
 
     heart.style.top =
-      Math.random() * 100 +
-      "vh";
+      Math.random() * 100 + "vh";
 
 
     heart.style.fontSize =
@@ -1202,13 +1179,9 @@ function createHearts(amount) {
     );
 
 
-    document
-      .getElementById(
-        "particles"
-      )
-      .appendChild(
-        heart
-      );
+    particles.appendChild(
+      heart
+    );
 
 
     setTimeout(
@@ -1225,203 +1198,284 @@ function createHearts(amount) {
 }
 
 
-/* =========================
-   START
-========================= */
-
-loadQuestion();
-/* =========================
-   OUR MEMORIES GALLERY
-========================= */
+/* =========================================================
+   SECOND MEMORIES GALLERY
+   For your memories-stage section
+========================================================= */
 
 const memoryGallery =
   document.getElementById("memoryGallery");
 
+
 const memoryFiles = [];
 
-/*
-   Your GitHub folder:
-   our memories
 
-   Your photo names:
-   Photo01_(1)_11zon.jpg
-   Photo01_(2)_11zon.jpg
-   ...
-   Photo01_(30)_11zon.jpg
-*/
-
-for (let i = 1; i <= 30; i++) {
+for (
+  let i = 1;
+  i <= 30;
+  i++
+) {
 
   memoryFiles.push(
     `our memories/Photo01_(${i})_11zon.jpg`
   );
+
 }
 
 
-/* CREATE GALLERY */
+/* CREATE SECOND MEMORY GALLERY */
 
-memoryFiles.forEach((file, index) => {
+if (memoryGallery) {
 
-  const card = document.createElement("div");
+  memoryFiles.forEach(
+    (file, index) => {
 
-  card.className = "memory-card";
-
-  card.style.animationDelay =
-    `${index * 0.06}s`;
-
-
-  const img = document.createElement("img");
-
-  img.src = file;
-
-  img.alt = `Our Memory ${index + 1}`;
-
-  img.loading = "lazy";
+      const card =
+        document.createElement("div");
 
 
-  img.onclick = function () {
-
-    openPhoto(index);
-
-  };
+      card.className =
+        "memory-card";
 
 
-  /*
-     Agar kisi photo ka naam/path
-     galat hua to console mein pata chalega.
-  */
-
-  img.onerror = function () {
-
-    console.log(
-      "Photo not found:",
-      file
-    );
-
-  };
+      card.style.animationDelay =
+        `${index * 0.06}s`;
 
 
-  card.appendChild(img);
-
-  memoryGallery.appendChild(card);
-
-});
+      const img =
+        document.createElement("img");
 
 
-/* =========================
-   FULLSCREEN VIEWER
-========================= */
-
-let currentPhoto = 0;
+      img.src =
+        file;
 
 
-function openPhoto(index) {
+      img.alt =
+        `Our Memory ${index + 1}`;
 
-  currentPhoto = index;
+
+      img.loading =
+        "lazy";
+
+
+      img.onclick =
+        function () {
+
+          openMemoryViewer(index);
+
+        };
+
+
+      img.onerror =
+        function () {
+
+          console.log(
+            "Photo not found:",
+            file
+          );
+
+        };
+
+
+      card.appendChild(
+        img
+      );
+
+
+      memoryGallery.appendChild(
+        card
+      );
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   SECOND FULLSCREEN MEMORY VIEWER
+========================================================= */
+
+let memoryPhotoIndex = 0;
+
+
+function openMemoryViewer(index) {
+
+  memoryPhotoIndex =
+    index;
+
 
   const viewer =
-    document.getElementById("photoViewer");
+    document.getElementById(
+      "photoViewer"
+    );
+
 
   const image =
-    document.getElementById("viewerImage");
+    document.getElementById(
+      "viewerImage"
+    );
+
+
+  if (!viewer || !image) {
+    return;
+  }
 
 
   image.src =
-    memoryFiles[currentPhoto];
+    memoryFiles[memoryPhotoIndex];
 
 
-  viewer.classList.add("active");
+  viewer.classList.add(
+    "active"
+  );
 
 }
 
 
 function closePhoto() {
 
-  document
-    .getElementById("photoViewer")
-    .classList.remove("active");
+  const viewer =
+    document.getElementById(
+      "photoViewer"
+    );
+
+
+  if (viewer) {
+
+    viewer.classList.remove(
+      "active"
+    );
+
+  }
 
 }
 
 
 function nextPhoto() {
 
-  currentPhoto++;
+  memoryPhotoIndex++;
 
-  if (currentPhoto >= memoryFiles.length) {
 
-    currentPhoto = 0;
+  if (
+    memoryPhotoIndex >=
+    memoryFiles.length
+  ) {
+
+    memoryPhotoIndex = 0;
 
   }
 
-  document
-    .getElementById("viewerImage")
-    .src = memoryFiles[currentPhoto];
+
+  const image =
+    document.getElementById(
+      "viewerImage"
+    );
+
+
+  if (image) {
+
+    image.src =
+      memoryFiles[memoryPhotoIndex];
+
+  }
 
 }
 
 
 function previousPhoto() {
 
-  currentPhoto--;
+  memoryPhotoIndex--;
 
-  if (currentPhoto < 0) {
 
-    currentPhoto =
+  if (
+    memoryPhotoIndex < 0
+  ) {
+
+    memoryPhotoIndex =
       memoryFiles.length - 1;
 
   }
 
-  document
-    .getElementById("viewerImage")
-    .src = memoryFiles[currentPhoto];
+
+  const image =
+    document.getElementById(
+      "viewerImage"
+    );
+
+
+  if (image) {
+
+    image.src =
+      memoryFiles[memoryPhotoIndex];
+
+  }
 
 }
 
 
-/* ESC = CLOSE */
+/* =========================================================
+   SECOND MEMORY VIEWER BUTTONS
+========================================================= */
 
-document.addEventListener(
-  "keydown",
-  function(event) {
+const photoViewer =
+  document.getElementById(
+    "photoViewer"
+  );
 
-    if (event.key === "Escape") {
 
-      closePhoto();
+const viewerPrev =
+  document.querySelector(
+    ".viewer-prev"
+  );
 
-    }
 
-    if (event.key === "ArrowRight") {
+const viewerNext =
+  document.querySelector(
+    ".viewer-next"
+  );
 
-      nextPhoto();
 
-    }
+const closeViewer =
+  document.querySelector(
+    ".close-viewer"
+  );
 
-    if (event.key === "ArrowLeft") {
 
-      previousPhoto();
+if (viewerPrev) {
 
-    }
+  viewerPrev.addEventListener(
+    "click",
+    previousPhoto
+  );
 
-  }
-);
+}
+
+
+if (viewerNext) {
+
+  viewerNext.addEventListener(
+    "click",
+    nextPhoto
+  );
+
+}
+
+
+if (closeViewer) {
+
+  closeViewer.addEventListener(
+    "click",
+    closePhoto
+  );
+
+}
 
 
 /* CLICK OUTSIDE IMAGE = CLOSE */
 
-document
-  .getElementById("photoViewer")
-  .addEventListener(
+if (photoViewer) {
+
+  photoViewer.addEventListener(
     "click",
-    function(event) {
-
-      if (
-        event.target === this
-      ) {
-
-        closePhoto();
-
-      }
-
-    }
-  );
+    function(ev
