@@ -67,7 +67,7 @@ function unlock() {
   const validPasswords = [
 
     "2606",
-    "26june"
+    "2606"
 
   ];
 
