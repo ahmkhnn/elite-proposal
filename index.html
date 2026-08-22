@@ -3,275 +3,340 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08030b">
   <title>For Inshaal ❤️</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <div id="particles"></div>
+<div id="particles"></div>
 
-  <!-- PASSWORD -->
-  <section class="screen active" id="loginScreen">
-    <div class="glass login-card">
-      <div class="logo-heart">♥</div>
-      <span class="eyebrow">A PRIVATE LITTLE WORLD</span>
+<!-- ================= LOGIN ================= -->
+<section class="screen active" id="loginScreen">
+  <div class="glass login-card">
 
-      <h1>Only for Inshaal</h1>
+    <div class="logo-heart">♥</div>
 
-      <p>
-        Some things are meant for one person only.
-        <br>Enter your special date to continue. ✨
-      </p>
+    <span class="eyebrow">A PRIVATE LITTLE WORLD</span>
 
-      <div class="password-box">
-        <input
-          type="password"
-          id="password"
-          placeholder="Enter your date"
-          autocomplete="off"
-        >
-        <button id="unlockBtn">Unlock ❤️</button>
-      </div>
+    <h1>Only for Inshaal</h1>
 
-      <p class="hint">Hint: Your special day • 26 June</p>
-      <p class="error" id="loginError"></p>
-    </div>
-  </section>
+    <p>
+      Some things are meant for one person only.
+      <br>
+      Enter your special date to continue. ✨
+    </p>
 
+    <div class="password-box">
+      <input
+        id="password"
+        type="password"
+        placeholder="Enter your date"
+        autocomplete="off"
+      >
 
-  <!-- QUESTIONS -->
-  <section class="screen" id="questionScreen">
-
-    <div class="topbar">
-      <span id="questionNumber">01 / 05</span>
-      <div class="progress-track">
-        <div id="progress"></div>
-      </div>
+      <button id="unlockBtn">
+        Unlock ❤️
+      </button>
     </div>
 
-    <div class="glass question-card">
+    <p class="hint">Your special day • 26 June</p>
+    <p class="error" id="loginError"></p>
 
-      <div class="orb">
-        <span>♥</span>
-      </div>
+  </div>
+</section>
 
-      <span class="eyebrow">QUESTION <span id="smallNumber">01</span></span>
 
-      <h1 id="questionTitle"></h1>
-      <p id="questionText"></p>
+<!-- ================= QUESTIONS ================= -->
+<section class="screen" id="questionScreen">
 
-      <div class="answer-area">
+  <div class="topbar">
+    <span id="questionNumber">01 / 05</span>
 
-        <button class="yes-button" id="yesButton">
-          Yes ❤️
-        </button>
-
-        <button class="no-button" id="noButton">
-          No 😭
-        </button>
-
-      </div>
-
-      <p class="reaction" id="noReaction"></p>
-
+    <div class="progress-track">
+      <div id="progress"></div>
     </div>
-  </section>
+  </div>
 
+  <div class="glass question-card">
 
-  <!-- CHOICE CELEBRATION -->
-  <section class="screen" id="chosenScreen">
+    <div class="orb">
+      <span>♥</span>
+    </div>
 
-    <div class="celebration-content">
+    <span class="eyebrow">
+      QUESTION <span id="smallNumber">01</span>
+    </span>
 
-      <div class="giant-heart">♥</div>
+    <h1 id="questionTitle"></h1>
+    <p id="questionText"></p>
 
-      <span class="eyebrow">SHE CHOSE</span>
+    <div class="answer-area">
 
-      <h1>Inshaal ❤️ Ahmie</h1>
+      <button class="yes-button" id="yesButton">
+        Yes ❤️
+      </button>
 
-      <p>
-        And now... there's something I want you to read.
-      </p>
-
-      <button class="continue-button" id="letterButton">
-        Read my letter 💌
+      <button class="no-button" id="noButton">
+        No 😭
       </button>
 
     </div>
 
-  </section>
+    <p class="reaction" id="noReaction"></p>
+
+  </div>
+</section>
 
 
-  <!-- LOVE LETTER -->
-  <section class="screen" id="letterScreen">
+<!-- ================= CHOICE ================= -->
+<section class="screen" id="chosenScreen">
 
-    <div class="glass letter-card">
+  <div class="celebration-content">
 
-      <span class="eyebrow">A LETTER FROM AHMIE</span>
+    <div class="giant-heart">♥</div>
 
-      <h1>For Inshaal,</h1>
+    <span class="eyebrow">SHE CHOSE</span>
 
-      <div class="letter">
+    <h1>Inshaal ❤️ Ahmie</h1>
 
-        <p>
-          I don't want this letter to be about holding you back,
-          controlling your choices, or asking you to belong to me.
-        </p>
+    <p>
+      You chose me...
+      <br>
+      now there's something I want you to read.
+    </p>
 
-        <p>
-          You have always been free to choose the person who makes
-          your heart happy. If one day you choose someone else,
-          I will respect that choice, even if it hurts.
-        </p>
+    <button class="continue-button" id="letterButton">
+      Read my letter 💌
+    </button>
 
-        <p>
-          But if life ever brings you back to me, from anywhere,
-          at any time, I want you to know something simple:
-          <strong>I would still open the door for you.</strong>
-        </p>
-
-        <p>
-          I can stay beside you for as long as you genuinely want
-          me there. But if you ever decide, with your own happiness,
-          that you want me to walk away, I will respect you enough
-          to let you go.
-        </p>
-
-        <p>
-          All I have ever wanted in return is something simple:
-          <strong>respect, appreciation, honesty and value.</strong>
-        </p>
-
-        <p>
-          Whatever happened before, I don't want to carry those
-          chapters like weapons. I just want the things between us
-          to be clear, peaceful and honest.
-        </p>
-
-        <p>
-          You can find love again. You can choose someone,
-          call someone your favourite person, or make someone
-          your whole world. That's your freedom.
-        </p>
-
-        <p>
-          And maybe that's what makes love meaningful —
-          when someone stays because they genuinely want to,
-          not because they are forced to.
-        </p>
-
-        <p>
-          Through everything, one thing remains:
-          <strong>I'll always consider you my best friend forever.</strong>
-        </p>
-
-        <p>
-          Maybe our story has had confusing chapters.
-          Maybe some things happened that neither of us understood
-          completely.
-        </p>
-
-        <p>
-          But today, I don't want to fight the past.
-          I just want to make the future a little more beautiful.
-        </p>
-
-        <p class="signature">
-          Always wishing the best for you,<br>
-          <strong>Ahmie ❤️</strong>
-        </p>
-
-      </div>
-
-      <button class="continue-button" id="datingButton">
-        So... let's talk about us 🌹
-      </button>
-
-    </div>
-
-  </section>
+  </div>
+</section>
 
 
-  <!-- DATING SETUP -->
-  <section class="screen" id="datingScreen">
+<!-- ================= LOVE LETTER ================= -->
+<section class="screen" id="letterScreen">
 
-    <div class="topbar">
-      <span id="datingNumber">01 / 06</span>
+  <div class="glass letter-card">
 
-      <div class="progress-track">
-        <div id="datingProgress"></div>
-      </div>
-    </div>
+    <span class="eyebrow">A LETTER FROM AHMIE</span>
 
-    <div class="glass dating-card">
+    <h1>For Inshaal,</h1>
 
-      <div class="dating-icon" id="datingIcon">🎨</div>
+    <div class="letter">
 
-      <span class="eyebrow">OUR LITTLE FUTURE</span>
-
-      <h1 id="datingTitle"></h1>
-
-      <p id="datingText"></p>
-
-      <div class="dating-options" id="datingOptions"></div>
-
-    </div>
-
-  </section>
-
-
-  <!-- FINAL -->
-  <section class="screen" id="finalScreen">
-
-    <div class="final-glow"></div>
-
-    <div class="final-content">
-
-      <div class="final-heart">♥</div>
-
-      <span class="eyebrow">THE BEGINNING</span>
-
-      <h1>Inshaal × Ahmie</h1>
-
-      <p class="final-main">
-        Let's have a beautiful life together.
+      <p>
+        I don't want this letter to be about holding you back,
+        controlling your choices, or asking you to belong to me.
       </p>
 
-      <p class="inshallah">
-        Inshallah. ❤️
+      <p>
+        You are free to choose whoever makes your heart happy.
+        If one day you choose someone else, I will respect that
+        choice, even if it hurts.
       </p>
 
-      <div class="final-message">
+      <p>
+        But if life ever brings you back to me, from anywhere,
+        at any time, I want you to know something simple:
+        <strong>I would still open the door for you.</strong>
+      </p>
 
-        <p>
-          Good days. Bad days. Random laughs.
-          Late-night conversations.
-          Little adventures.
-          And memories we haven't made yet.
-        </p>
+      <p>
+        I can stay beside you for as long as you genuinely want
+        me there. But if you ever choose, with your own happiness,
+        to send me away, I will respect you enough to let you go.
+      </p>
 
-        <p>
-          Whatever the future brings,
-          may it always bring us closer to happiness.
-        </p>
+      <p>
+        All I ask in return is something simple:
+        <strong>respect, appreciation, honesty and value.</strong>
+      </p>
 
-      </div>
+      <p>
+        Whatever happened before, I don't want to carry those
+        chapters like weapons. I want the things between us
+        to be clear, peaceful and honest.
+      </p>
 
-      <div class="final-choice">
-        <span>Her choice</span>
-        <strong id="chosenColour">❤️</strong>
-      </div>
+      <p>
+        You can find love again. You can choose someone,
+        call someone your favourite person, or make someone
+        your whole world. That's your freedom.
+      </p>
 
-      <p class="forever">
-        — Ahmie
+      <p>
+        And maybe that's what makes love meaningful —
+        when someone stays because they genuinely want to,
+        not because they are forced to.
+      </p>
+
+      <p>
+        Through everything, one thing remains:
+        <strong>I'll always consider you my best friend forever.</strong>
+      </p>
+
+      <p>
+        I don't want to fight the past anymore.
+        I just want whatever comes next to be more honest,
+        peaceful and beautiful.
+      </p>
+
+      <p class="signature">
+        Always wishing the best for you,<br>
+        <strong>Ahmie ❤️</strong>
       </p>
 
     </div>
 
-  </section>
+    <button class="continue-button" id="galleryButton">
+      Our memories 📸
+    </button>
 
-  <script src="script.js"></script>
+  </div>
+</section>
+
+
+<!-- ================= GALLERY ================= -->
+<section class="screen" id="galleryScreen">
+
+  <div class="glass gallery-card">
+
+    <span class="eyebrow">OUR MEMORIES</span>
+
+    <h1>Little Moments 📸</h1>
+
+    <p class="gallery-intro">
+      Thirty little pieces of memories,
+      waiting to be remembered. ❤️
+    </p>
+
+    <div class="gallery-grid" id="galleryGrid"></div>
+
+    <button class="continue-button" id="datingButton">
+      Now let's talk about us 🌹
+    </button>
+
+  </div>
+</section>
+
+
+<!-- ================= LIGHTBOX ================= -->
+<div class="lightbox" id="lightbox">
+
+  <button class="close-lightbox" id="closeLightbox">
+    ×
+  </button>
+
+  <button class="gallery-arrow left" id="previousPhoto">
+    ‹
+  </button>
+
+  <img id="lightboxImage" src="" alt="Memory">
+
+  <button class="gallery-arrow right" id="nextPhoto">
+    ›
+  </button>
+
+  <div class="photo-counter" id="photoCounter">
+    01 / 30
+  </div>
+
+</div>
+
+
+<!-- ================= DATING ================= -->
+<section class="screen" id="datingScreen">
+
+  <div class="topbar">
+
+    <span id="datingNumber">
+      01 / 06
+    </span>
+
+    <div class="progress-track">
+      <div id="datingProgress"></div>
+    </div>
+
+  </div>
+
+  <div class="glass dating-card">
+
+    <div class="dating-icon" id="datingIcon">
+      🎨
+    </div>
+
+    <span class="eyebrow">
+      OUR LITTLE FUTURE
+    </span>
+
+    <h1 id="datingTitle"></h1>
+
+    <p id="datingText"></p>
+
+    <div class="dating-options" id="datingOptions"></div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= FINAL ================= -->
+<section class="screen" id="finalScreen">
+
+  <div class="final-glow"></div>
+
+  <div class="final-content">
+
+    <div class="final-heart">♥</div>
+
+    <span class="eyebrow">
+      THE BEGINNING
+    </span>
+
+    <h1>
+      Inshaal × Ahmie
+    </h1>
+
+    <p class="final-main">
+      Let's have a beautiful life together.
+    </p>
+
+    <p class="inshallah">
+      Inshallah. ❤️
+    </p>
+
+    <div class="final-message">
+
+      <p>
+        Good days. Bad days. Random laughs.
+        Late-night conversations.
+        Little adventures.
+        And memories we haven't made yet.
+      </p>
+
+      <p>
+        Whatever the future brings,
+        may it always bring us closer to happiness.
+      </p>
+
+    </div>
+
+    <div class="final-choice">
+      <span>Her favourite colour</span>
+      <strong id="chosenColour">❤️</strong>
+    </div>
+
+    <p class="forever">
+      — Ahmie
+    </p>
+
+  </div>
+</section>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
