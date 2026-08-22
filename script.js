@@ -1,3 +1,4 @@
+alert("JAVASCRIPT IS WORKING ❤️");
 /* =========================================================
    ELITE PROPOSAL
    CLEAN COMPLETE SCRIPT
