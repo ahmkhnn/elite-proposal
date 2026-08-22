@@ -340,3 +340,29 @@
 
 </body>
 </html>
+<section id="memoriesStage" class="memories-stage">
+
+  <div class="memories-header">
+    <span class="memory-heart">♡</span>
+    <h1>Our Memories</h1>
+    <p>30 little moments that deserve to stay forever ✨</p>
+  </div>
+
+  <div id="memoryGallery" class="memory-gallery"></div>
+
+  <button class="memory-next" onclick="nextFromMemories()">
+    Continue Our Story ❤️
+  </button>
+
+</section>
+
+<!-- Fullscreen viewer -->
+<div id="photoViewer" class="photo-viewer">
+  <button class="close-viewer" onclick="closePhoto()">×</button>
+
+  <button class="viewer-prev" onclick="previousPhoto()">‹</button>
+
+  <img id="viewerImage" src="" alt="Our Memory">
+
+  <button class="viewer-next" onclick="nextPhoto()">›</button>
+</div>
