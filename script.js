@@ -1230,3 +1230,198 @@ function createHearts(amount) {
 ========================= */
 
 loadQuestion();
+/* =========================
+   OUR MEMORIES GALLERY
+========================= */
+
+const memoryGallery =
+  document.getElementById("memoryGallery");
+
+const memoryFiles = [];
+
+/*
+   Your GitHub folder:
+   our memories
+
+   Your photo names:
+   Photo01_(1)_11zon.jpg
+   Photo01_(2)_11zon.jpg
+   ...
+   Photo01_(30)_11zon.jpg
+*/
+
+for (let i = 1; i <= 30; i++) {
+
+  memoryFiles.push(
+    `our memories/Photo01_(${i})_11zon.jpg`
+  );
+}
+
+
+/* CREATE GALLERY */
+
+memoryFiles.forEach((file, index) => {
+
+  const card = document.createElement("div");
+
+  card.className = "memory-card";
+
+  card.style.animationDelay =
+    `${index * 0.06}s`;
+
+
+  const img = document.createElement("img");
+
+  img.src = file;
+
+  img.alt = `Our Memory ${index + 1}`;
+
+  img.loading = "lazy";
+
+
+  img.onclick = function () {
+
+    openPhoto(index);
+
+  };
+
+
+  /*
+     Agar kisi photo ka naam/path
+     galat hua to console mein pata chalega.
+  */
+
+  img.onerror = function () {
+
+    console.log(
+      "Photo not found:",
+      file
+    );
+
+  };
+
+
+  card.appendChild(img);
+
+  memoryGallery.appendChild(card);
+
+});
+
+
+/* =========================
+   FULLSCREEN VIEWER
+========================= */
+
+let currentPhoto = 0;
+
+
+function openPhoto(index) {
+
+  currentPhoto = index;
+
+  const viewer =
+    document.getElementById("photoViewer");
+
+  const image =
+    document.getElementById("viewerImage");
+
+
+  image.src =
+    memoryFiles[currentPhoto];
+
+
+  viewer.classList.add("active");
+
+}
+
+
+function closePhoto() {
+
+  document
+    .getElementById("photoViewer")
+    .classList.remove("active");
+
+}
+
+
+function nextPhoto() {
+
+  currentPhoto++;
+
+  if (currentPhoto >= memoryFiles.length) {
+
+    currentPhoto = 0;
+
+  }
+
+  document
+    .getElementById("viewerImage")
+    .src = memoryFiles[currentPhoto];
+
+}
+
+
+function previousPhoto() {
+
+  currentPhoto--;
+
+  if (currentPhoto < 0) {
+
+    currentPhoto =
+      memoryFiles.length - 1;
+
+  }
+
+  document
+    .getElementById("viewerImage")
+    .src = memoryFiles[currentPhoto];
+
+}
+
+
+/* ESC = CLOSE */
+
+document.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (event.key === "Escape") {
+
+      closePhoto();
+
+    }
+
+    if (event.key === "ArrowRight") {
+
+      nextPhoto();
+
+    }
+
+    if (event.key === "ArrowLeft") {
+
+      previousPhoto();
+
+    }
+
+  }
+);
+
+
+/* CLICK OUTSIDE IMAGE = CLOSE */
+
+document
+  .getElementById("photoViewer")
+  .addEventListener(
+    "click",
+    function(event) {
+
+      if (
+        event.target === this
+      ) {
+
+        closePhoto();
+
+      }
+
+    }
+  );
